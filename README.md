@@ -24,11 +24,10 @@ git clone https://github.com/YOUR_USERNAME/edusync.git
 ```
 cd edusync
 ```
-```
+
 Open the project folder in VSCode, and go to website folder
-```
-```
+
 Open index.html in your web browser, and you will be redirected to the login page
-```
+
 Team: PandaHackers (18)
 Developers: Jun Hao, Brielle
