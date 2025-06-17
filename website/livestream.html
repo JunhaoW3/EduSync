@@ -2,79 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EduSync - Live Stream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduSync - Live Zoom Style</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .zoom-bar {
+      background-color: #1c1c1c;
+    }
+    .active-border {
+      border: 2px solid #3ba55d;
+    }
+  </style>
 </head>
 <body class="bg-[#0d1117] text-[#c9d1d9]">
 
-  <div class="min-h-screen flex">
-    <!-- Sidebar -->
-    <aside class="w-64 bg-[#161b22] shadow-md p-6">
-      <div class="text-2xl font-bold text-white mb-8">EduSync</div>
-      <nav class="space-y-4">
-        <a href="home.html" class="block hover:text-white">Home</a>
-        <a href="announcements.html" class="block hover:text-white">Announcements</a>
-        <a href="homework.html" class="block hover:text-white">Homework</a>
-        <a href="submissions.html" class="block hover:text-white">Submissions</a>
-        <a href="review.html" class="block hover:text-white">Review</a>
-        <a href="students.html" class="block hover:text-white">Students</a>
-        <a href="videos.html" class="block hover:text-white">Videos</a>
-        <a href="livestream.html" class="block font-semibold text-white">Live Stream</a>
-      </nav>
-    </aside>
+<div class="min-h-screen flex">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-[#161b22] shadow-md p-6">
+    <div class="text-2xl font-bold text-white mb-8">EduSync</div>
+    <nav class="space-y-4">
+      <a href="home.html" class="block hover:text-white">Home</a>
+      <a href="announcements.html" class="block hover:text-white">Announcements</a>
+      <a href="homework.html" class="block hover:text-white">Homework</a>
+      <a href="submissions.html" class="block hover:text-white">Submissions</a>
+      <a href="review.html" class="block hover:text-white">Review</a>
+      <a href="students.html" class="block hover:text-white">Students</a>
+      <a href="videos.html" class="block hover:text-white">Videos</a>
+      <a href="livestream.html" class="block font-semibold text-white">Live Stream</a>
+    </nav>
+  </aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-8 space-y-6">
-      <div class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-semibold">📡 Live Coding Quiz</h1>
-        <button class="text-sm bg-gray-700 text-white px-3 py-1 rounded-full hover:bg-gray-600">Live Quiz Function</button>
-      </div>
+  <!-- Main Zoom-style Content -->
+  <main class="flex-1 bg-black relative pb-32">
+    <!-- Header -->
+    <div class="text-xl font-semibold text-white p-4">📡 Livestream</div>
 
-      <!-- Video Call Frame -->
-      <div class="bg-[#161b22] border border-[#30363d] rounded-xl overflow-hidden shadow-lg">
-        <!-- Question Section -->
-        <div class="p-6 border-b border-[#30363d]">
-          <h2 class="text-lg font-bold mb-4">What is the time complexity of binary search on a sorted array?</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">A. O(n)</button>
-            <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">B. O(log n)</button>
-            <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">C. O(n log n)</button>
-            <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">D. O(1)</button>
-          </div>
-        </div>
-
-        <!-- Student Avatars Row -->
-        <div class="flex items-center justify-between px-4 py-4 bg-[#0d1117]">
-          <button class="text-white text-xl px-3">&#8592;</button>
-          <div class="flex gap-4 overflow-x-auto py-2 px-2 flex-1 justify-center">
-            <!-- Repeat for each student -->
-            <div class="flex flex-col items-center w-24">
-              <img src="https://i.pravatar.cc/100?img=1" class="w-16 h-16 rounded-full object-cover mb-1 border border-gray-600" />
-              <span class="text-xs text-center">Aaron Toh</span>
-            </div>
-            <div class="flex flex-col items-center w-24">
-              <img src="https://i.pravatar.cc/100?img=2" class="w-16 h-16 rounded-full object-cover mb-1 border border-gray-600" />
-              <span class="text-xs text-center">Amelia Tan</span>
-            </div>
-            <div class="flex flex-col items-center w-24">
-              <img src="https://i.pravatar.cc/100?img=3" class="w-16 h-16 rounded-full object-cover mb-1 border border-gray-600" />
-              <span class="text-xs text-center">Benny Blanco</span>
-            </div>
-            <div class="flex flex-col items-center w-24">
-              <img src="https://i.pravatar.cc/100?img=4" class="w-16 h-16 rounded-full object-cover mb-1 border border-gray-600" />
-              <span class="text-xs text-center">Clara Lim</span>
-            </div>
-            <div class="flex flex-col items-center w-24">
-              <img src="https://i.pravatar.cc/100?img=5" class="w-16 h-16 rounded-full object-cover mb-1 border border-gray-600" />
-              <span class="text-xs text-center">Daniel Ong</span>
-            </div>
-          </div>
-          <button class="text-white text-xl px-3">&#8594;</button>
+    <!-- Main speaker screen -->
+    <div class="flex justify-center items-center h-[60vh]">
+      <div class="w-4/5 h-full bg-[#0d1117] border border-[#30363d] rounded-xl p-6 space-y-4 text-white">
+        <h2 class="text-xl font-bold mb-2">💡 Live Quiz: What is the time complexity of binary search?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">A. O(n)</button>
+          <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">B. O(log n)</button>
+          <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">C. O(n log n)</button>
+          <button class="bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] p-3 rounded text-left">D. O(1)</button>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+
+    <!-- Bottom participant thumbnails -->
+    <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2 p-2 zoom-bar border border-[#30363d] rounded-lg">
+      <div class="relative">
+        <img src="https://i.pravatar.cc/100?img=1" class="w-20 h-12 object-cover rounded active-border" />
+        <p class="text-xs text-white text-center">Victoria Reyes</p>
+      </div>
+      <div class="relative">
+        <img src="https://i.pravatar.cc/100?img=2" class="w-20 h-12 object-cover rounded" />
+        <p class="text-xs text-white text-center">Martin George</p>
+      </div>
+      <div class="relative">
+        <img src="https://i.pravatar.cc/100?img=3" class="w-20 h-12 object-cover rounded" />
+        <p class="text-xs text-white text-center">Noe Valley</p>
+      </div>
+      <div class="relative">
+        <img src="https://i.pravatar.cc/100?img=4" class="w-20 h-12 object-cover rounded" />
+        <p class="text-xs text-white text-center">Casey Cunningham</p>
+      </div>
+      <div class="relative">
+        <img src="https://i.pravatar.cc/100?img=5" class="w-20 h-12 object-cover rounded" />
+        <p class="text-xs text-white text-center">Mike Nolan</p>
+      </div>
+    </div>
+
+    <!-- Bottom bar with Zoom-style controls -->
+    <div class="absolute bottom-0 w-full flex justify-center items-center bg-[#161b22] border-t border-[#30363d] py-2 space-x-6 text-sm">
+      <span class="text-white">🎥 Stop Video</span>
+      <span class="text-white">👥 Participants</span>
+      <span class="text-white">💬 Chat</span>
+      <span class="text-green-400 font-semibold">🖥️ Share Screen</span>
+      <span class="text-white">📊 Polls</span>
+      <span class="text-white">🔴 Record</span>
+      <span class="text-white">✋ Raise Hand</span>
+      <span class="text-white">❓ Q&A</span>
+      <button class="text-red-500 font-semibold">End</button>
+    </div>
+  </main>
+</div>
 
 </body>
 </html>
+
+
