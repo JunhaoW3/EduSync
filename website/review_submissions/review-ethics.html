@@ -1,0 +1,124 @@
+<!-- review-ethics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Review: Ethics Case Study</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0d1117] text-[#c9d1d9]">
+  <div class="min-h-screen flex">
+    <aside class="w-64 bg-[#161b22] shadow-md p-6">
+      <div class="text-2xl font-bold text-white mb-8">EduSync</div>
+      <nav class="space-y-4">
+        <a href="home.html" class="block hover:text-white">Home</a>
+        <a href="announcements.html" class="block hover:text-white">Announcements</a>
+        <a href="homework.html" class="block hover:text-white">Homework</a>
+        <a href="submissions.html" class="block hover:text-white">Submissions</a>
+        <a href="review.html" class="block font-semibold hover:text-white">Review</a>
+        <a href="students.html" class="block hover:text-white">Students</a>
+        <a href="videos.html" class="block hover:text-white">Videos</a>
+        <a href="livestream.html" class="block hover:text-white">Live Stream</a>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-8 space-y-8">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-semibold">⚖️ Review: Ethics Case Study</h1>
+        <a href="../review.html">
+          <button class="bg-[#388bfd] hover:bg-[#1f6feb] text-white px-4 py-2 rounded">&larr; Back to Review List</button>
+        </a>
+      </div>
+      <p class="text-sm text-[#8b949e]">Submitted by <span class="text-white font-medium">Chong Rui Ting</span> on 20 Jun 2:10 PM</p>
+
+      <div class="bg-[#161b22] border border-[#30363d] p-6 rounded text-sm space-y-4 leading-relaxed">
+        <p><strong>Title:</strong> Ethics in Whistleblowing: A Case Analysis</p>
+        <p><strong>Essay:</strong></p>
+        <p>Whistleblowing presents a significant ethical dilemma where personal values, societal consequences, and legal boundaries intersect. In this case study, the subject is a senior chemist at a pharmaceutical company who discovers manipulated clinical trial data intended to secure regulatory approval for a new drug. Faced with the choice to remain silent or report the misconduct, the chemist chooses to blow the whistle, knowing it may cost them their job, reputation, and personal peace.</p>
+        <p>Using deontological ethics, the chemist has a duty to protect public health. The manipulated data could result in widespread harm if the drug is released. Kantian ethics emphasizes that moral acts must be done from duty, not consequence, and in this light, the chemist's decision to report is morally sound regardless of personal risk.</p>
+        <p>From a utilitarian perspective, the decision is also justified. While the chemist may suffer professionally, the action potentially saves lives and restores integrity to the regulatory process. The greater good of the public outweighs individual cost. Ethical whistleblowing can also serve as a deterrent, encouraging transparency in future trials.</p>
+        <p>The case illustrates the need for stronger legal protection for whistleblowers and clearer ethical training in corporate settings. Although the chemist faced retaliation, the company was ultimately investigated, and the drug’s approval was revoked. Public trust, though shaken, was partly restored through this act of moral courage.</p>
+        <p>In conclusion, whistleblowing in this scenario upholds both moral duty and consequential good. It demonstrates that ethical decision-making requires bravery, and institutions must support such actions to foster a culture of accountability.</p>
+        <p><strong>Word Count:</strong> 428 words</p>
+      </div>
+
+      <form class="space-y-6 bg-[#161b22] border border-[#30363d] p-6 rounded">
+        <div>
+          <label class="block text-sm mb-1 text-[#8b949e]">Your Feedback</label>
+          <textarea rows="6" class="w-full p-2 rounded bg-[#0d1117] border border-[#30363d] text-white" placeholder="Write your peer review here..."></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 text-[#8b949e]">Rating (1–5)</label>
+          <select class="w-full p-2 rounded bg-[#0d1117] border border-[#30363d] text-white">
+            <option value="">Select rating</option>
+            <option>5 - Excellent</option>
+            <option>4 - Good</option>
+            <option>3 - Fair</option>
+            <option>2 - Needs Improvement</option>
+            <option>1 - Poor</option>
+          </select>
+        </div>
+
+        <div class="mt-6">
+          <label class="block text-sm mb-1 text-[#8b949e]">Draw Diagram (Optional)</label>
+          <div class="flex items-center gap-4 mb-2">
+            <input type="color" id="colorPicker" value="#000000" class="w-10 h-10 p-1 rounded" />
+            <input type="range" id="brushSize" min="1" max="10" value="3" class="w-32">
+            <button type="button" onclick="clearCanvas()" class="bg-red-600 hover:bg-red-500 text-white px-3 py-1 rounded">Clear</button>
+          </div>
+          <canvas id="drawingCanvas" width="600" height="300" class="border border-[#30363d] bg-white rounded cursor-crosshair"></canvas>
+        </div>
+
+        <button type="submit" class="bg-[#238636] hover:bg-[#2ea043] text-white font-semibold py-2 px-6 rounded">Submit Review</button>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const canvas = document.getElementById("drawingCanvas");
+      const ctx = canvas.getContext("2d");
+      const colorPicker = document.getElementById("colorPicker");
+      const brushSize = document.getElementById("brushSize");
+
+      let painting = false;
+
+      function startPosition(e) {
+        painting = true;
+        draw(e);
+      }
+
+      function endPosition() {
+        painting = false;
+        ctx.beginPath();
+      }
+
+      function draw(e) {
+        if (!painting) return;
+        const rect = canvas.getBoundingClientRect();
+
+        ctx.lineWidth = brushSize.value;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = colorPicker.value;
+
+        ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+      }
+
+      function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      canvas.addEventListener("mousedown", startPosition);
+      canvas.addEventListener("mouseup", endPosition);
+      canvas.addEventListener("mouseout", endPosition);
+      canvas.addEventListener("mousemove", draw);
+
+      window.clearCanvas = clearCanvas;
+    });
+  </script>
+</body>
+</html>
